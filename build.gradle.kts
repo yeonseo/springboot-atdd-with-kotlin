@@ -31,16 +31,16 @@ dependencies {
     implementation("net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1")
 
     // jgraph
-    implementation("org.jgrapht:jgrapht-core:1.0.1")
+    implementation("org.jgrapht:jgrapht-core:1.5.1")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.20-RC")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20-RC")
 
     runtimeOnly("com.h2database:h2")
 
-    testImplementation("io.rest-assured:rest-assured:3.3.0")
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+    testImplementation("io.rest-assured:rest-assured:5.3.0")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.0") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 }
