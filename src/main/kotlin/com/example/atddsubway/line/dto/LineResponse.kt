@@ -1,6 +1,7 @@
 package com.example.atddsubway.line.dto
 
 import com.example.atddsubway.line.domain.Line
+import java.time.LocalDateTime
 
 data class LineResponse (
     val id: Long,
@@ -10,8 +11,8 @@ data class LineResponse (
     val endTime: String,
     val intervalTime: Int,
     val stations: List<LineStationResponse>,
-    val createdDate: String?,
-    val modifiedDate: String?
+    val createdDate: LocalDateTime?,
+    val modifiedDate: LocalDateTime?
 ) {
     companion object {
         fun of(line: Line, stations: List<LineStationResponse> = listOf()): LineResponse {
@@ -23,8 +24,8 @@ data class LineResponse (
                 line.endTime.toString(),
                 line.intervalTime,
                 stations,
-                line.createdDate.toString(),
-                line.updatedDate.toString()
+                line.createdDate,
+                line.updatedDate
             )
         }
     }
