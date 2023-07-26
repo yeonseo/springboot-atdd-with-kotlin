@@ -1,6 +1,7 @@
 package com.example.atddsubway.line.acceptance
 
 import com.example.atddsubway.AcceptanceTest
+import com.example.atddsubway.line.dto.LineResponse
 import io.restassured.RestAssured
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
@@ -58,14 +59,33 @@ class LineAcceptanceTest  : AcceptanceTest() {
     fun getLines() {
         // given
         // 지하철_노선_등록되어_있음
-        // 지하철_노선_등록되어_있음
+        val params: MutableMap<String, String> = HashMap()
+        params["name"] = "2호선"
+        params["color"] = "bg-green-600"
+        params["startTime"] = LocalTime.of(5, 30).format(DateTimeFormatter.ISO_TIME)
+        params["endTime"] = LocalTime.of(23, 30).format(DateTimeFormatter.ISO_TIME)
+        params["intervalTime"] = "10"
+        val createResponse = RestAssured
+            .given()
+            .log().all()
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .body(params)
+            .`when`()
+            .post("/lines")
+            .then()
+            .log().all().extract()
 
         // when
-        // 지하철_노선_목록_조회_요청
+        // 지하철_노선_조회_요청
+        val uri = createResponse.header("Location")
+        val response = RestAssured.given().log().all()
+            .accept(MediaType.APPLICATION_JSON_VALUE)
+            .`when`()[uri].then().log().all().extract()
 
         // then
-        // 지하철_노선_목록_응답됨
-        // 지하철_노선_목록_포함됨
+        // 지하철_노선_응답됨
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value())
+        assertThat(response.`as`(LineResponse::class.java)).isNotNull()
     }
 
     @DisplayName("지하철 노선을 조회한다.")
