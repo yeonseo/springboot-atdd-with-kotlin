@@ -29,6 +29,7 @@ dependencies {
 
     // log
     implementation("net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1")
+    implementation("io.github.microutils:kotlin-logging:1.8.3")
 
     // jgraph
     implementation("org.jgrapht:jgrapht-core:1.5.1")
