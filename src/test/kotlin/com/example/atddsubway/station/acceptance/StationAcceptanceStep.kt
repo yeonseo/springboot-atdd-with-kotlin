@@ -1,6 +1,6 @@
 package com.example.atddsubway.station.acceptance
 
-import com.example.atddsubway.line.dto.StationResponse
+import com.example.atddsubway.station.dto.StationResponse
 import io.restassured.RestAssured
 import io.restassured.response.ExtractableResponse
 import io.restassured.response.Response

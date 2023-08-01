@@ -2,6 +2,7 @@ package com.example.atddsubway.station.controller
 
 import com.example.atddsubway.station.domain.StationRepository
 import com.example.atddsubway.station.dto.StationCreateRequest
+import com.example.atddsubway.station.dto.StationResponse
 import mu.KotlinLogging
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
