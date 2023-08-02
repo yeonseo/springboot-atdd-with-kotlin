@@ -38,6 +38,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.20-RC")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20-RC")
 
+    // Kafka dependencies
+    // Spring for Apache Kafka
+    implementation("org.springframework.kafka:spring-kafka")
+    // Spring for Apache Kafka - Test Support
+    testImplementation("org.springframework.kafka:spring-kafka-test")
+
+
     runtimeOnly("com.h2database:h2")
 
     testImplementation("io.rest-assured:rest-assured:5.3.0")
